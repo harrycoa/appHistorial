@@ -1,0 +1,48 @@
+extends ../default
+
+block content
+  
+  include ../templates/nav
+
+  div(class=['ui', 'grid','stackable']) 
+    div(class=['sixteen', 'wide', 'column'])   
+      h2(class=['ui','header','blue', 'dividing'])= 'Lista de Llamadas'
+
+      table(class=['ui', 'table', 'celled'] id='tbl-llamadas')
+        thead
+            tr  
+                th= 'ID'
+                th= 'Placa'
+                th= 'Nombre del Cliente'
+                th= 'Tipo de Contacto'
+                th= 'Telefono del Cliente'
+                th= 'Trabajador Corasur'
+                th= 'Telefono Origen'
+                th= 'Motivo'
+                th= 'Resultado de Llamada'
+                th= 'Estado'
+                th= 'kilometraje'
+                th= 'Fecha Registro'
+                th= 'Acciones'
+        tbody
+            each llamada in llamadas
+                tr
+                    td(id='idHistorial')= llamada.idHistorial
+                    td= llamada.placa
+                    td= llamada.cliente
+                    td= llamada.tipoContacto
+                    td= llamada.telefonoCliente
+                    td= llamada.trabajadorCorasur
+                    td= llamada.telefonoCorasur
+                    td= llamada.motivo
+                    td= llamada.resultadoLlamada
+                    td= llamada.estado
+                    td= llamada.km                   
+                    td= llamada.fechaRegistro
+                    td
+                      a(class=['ui button basic icon'] href='#' data-inverted  data-tooltip='Eliminar' data-position='top center' id='btn-eliminar')
+                       i(class=['trash icon'])                      
+                      a(class=['ui button basic icon'] href='http://localhost:3000/modificar/'+llamada.idHistorial data-inverted=''  data-tooltip='Modifciar' data-position='top center')
+                       i(class=['cut icon'])                      
+   script(src='/javascripts/llamadas.js')
+                      

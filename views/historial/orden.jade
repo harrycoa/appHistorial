@@ -1,0 +1,49 @@
+extends ../default
+
+block content
+  
+  include ../templates/nav
+
+  div(class=['ui', 'grid','stackable']) 
+    div(class=['tree', 'wide', 'column'])   
+      h2(class=['ui','header','dark', 'dividing'])= 'Orden'
+      table(class=['ui', 'table', 'celled','striped','right aligned'] id='tbl-llamadas')
+        div(class=['ui', 'field'])
+                label(for='placa')= 'Placa     :'
+                input(type='text' name='placa' placeholder='     placa')
+                button(class=['ui', 'button', 'basic', 'black'])='Buscar'
+        thead
+            tr  
+                th= 'OrdenRepacion'
+                th= 'Placa'
+                th= 'Nombre'
+                th= 'Direccion'
+                th= 'Conductor'
+                th= 'Km'
+                th= 'telefono'
+                th= 'celular'
+                th= 'TipoMannto'
+                th= 'fhinire'
+                th= 'fhfinre'
+                th= 'fhinien'
+                th= 'fhfinen'                
+            tbody
+            each llamada in llamadas
+                tr                  
+                  td= llamada.numero
+                  td= llamada.placa
+                  td= llamada.nombre
+                  td= llamada.direccion
+                  td= llamada.conductor
+                  td= llamada.km
+                  td= llamada.telefono
+                  td= llamada.celular
+                  td= llamada.idtipo
+                  td= llamada.fhinire
+                  td= llamada.fhfinre
+                  td= llamada.fhinien
+                  td= llamada.fhfinen                 
+                           
+        tbody
+
+

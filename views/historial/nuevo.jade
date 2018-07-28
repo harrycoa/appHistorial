@@ -1,0 +1,60 @@
+extends ../default
+
+block content
+  
+  include ../templates/nav
+
+  div(class=['ui', 'container', 'grid','stackable']) 
+    div(class=['ten', 'wide', 'column'])   
+      h2(class=['ui','header','blue', 'dividing'])= 'Llamada al Cliente'
+
+      div(class='form-nuevallamada')
+        form(class=['ui', 'form'] action='http://localhost:3000/nuevo' method='post')
+            div(class=['ui', 'two','field'])
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Placa'
+                    input(type='text' name='placa' placeholder='Ingrese Placa')
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Nombre del Cliente'
+                    input(type='text' name='cliente' placeholder='Ingrese Nombre del Cliente')     
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Tipo de Contacto'
+                    input(type='text' name='tipoContacto' placeholder='Ingrese tipo de Contacto')    
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Telefono del Cliente'
+                    input(type='text' name='telefonoCliente' placeholder='Ingrese Telefono o Celular del Cliente')     
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Trabajador Corasur'
+                    input(type='text' name='trabajadorCorasur' placeholder='Ingrese Nombre del Trabajador')
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Telefono Origen'
+                    input(type='text' name='telefonoCorasur' placeholder='Ingrese el Telefono Corasur')   
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Motivo'
+                    input(type='text' name='motivo' placeholder='Ingrese Motivo de Llamada')   
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Resultado de Llamada'
+                    input(type='text' name='resultadoLlamada' placeholder='Ingrese el Resultado de La Llamada')   
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Estado'
+                    input(type='text' name='estado' placeholder='Ingrese el Estado')   
+                div(class=['ui', 'field'])               
+                    label(for='cnomdocu')= 'Kilometraje'
+                    input(type='text' name='km' placeholder='Ingrese el ultimo Km')  
+                    
+                div(class=['ui', 'action', 'input'])                    
+                    select(class=['ui', 'compact selection dropdown'])
+                        option(value='campoReserva1' name='campoReserva1' id='campoReserva1')='campoReserva1'                        
+                        option(value='campoReserva2')='campoReserva2'
+                        option(value='campoReserva3')='campoReserva3'               
+
+            button(class=['ui', 'button', 'basic', 'black'])='Crear Llamada'
+            div(class=['ui','message','error'])
+     
+        if info != undefined
+            div(class=['ui','message','success'])
+             i(class=['close','icon'])
+             div(class='header')= 'Llamada Registrada'
+             p= info
+
+  script(src='/javascripts/validacion.js')

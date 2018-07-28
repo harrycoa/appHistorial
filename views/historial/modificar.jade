@@ -1,0 +1,58 @@
+extends ../default
+
+block content
+
+  include  ../templates/nav 
+
+  div(class=['ui', 'container', 'grid','stackable'])
+    div(class=['teen', 'wide', 'column'])
+
+      h2(class=['ui', 'header','blue', 'dividing'])= 'Modifica Llamada'
+       div(class='form-nuevallamada')
+        form(class=['ui', 'form'] action='http://localhost:3000/editar' method='post')
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Placa'
+                input(type='text' name='placa' placeholder='placa' value=ListLlamadas[0].placa)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Nombre del Cliente'
+                input(type='text' name='cliente' placeholder='cliente' value=ListLlamadas[0].cliente)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Tipo de Contacto'
+                input(type='text' name='tipoContacto' placeholder='placa' value=ListLlamadas[0].tipoContacto)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Telefono del Cliente'
+                input(type='text' name='telefonoCliente' placeholder='placa' value=ListLlamadas[0].telefonoCliente)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Trabajador Corasur'
+                input(type='text' name='trabajadorCorasur' placeholder='placa' value=ListLlamadas[0].trabajadorCorasur)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Telefono Origen'
+                input(type='text' name='telefonoCorasur' placeholder='placa' value=ListLlamadas[0].telefonoCorasur)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Motivo'
+                input(type='text' name='motivo' placeholder='placa' value=ListLlamadas[0].motivo)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Resultado Llamada'
+                input(type='text' name='resultadoLlamada' placeholder='placa' value=ListLlamadas[0].resultadoLlamada)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Estado'
+                input(type='text' name='estado' placeholder='placa' value=ListLlamadas[0].estado)
+            div(class=['ui', 'field'])
+                label(for='placa')= 'Ultimo Kilometraje'
+                input(type='text' name='km' placeholder='placa' value=ListLlamadas[0].km)
+            
+            div(class=['ui', 'two','field'])
+                div(class=['ui', 'field'])            
+                    input(type= 'hidden' name='idHistorial' value=ListLlamadas[0].idHistorial)         
+            button(class=['ui', 'button', 'basic', 'black'])='Modificar'
+            div(class=['ui','message','error'])
+
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class=['header'])= 'Llamada registrado'
+          p= info
+
+  
+  script(src='/javascripts/validation.js')  
+     
